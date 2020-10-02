@@ -1,0 +1,17 @@
+Statements Introduction
+
+#Selection example 
+favorite_number = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+if favorite_number >= 10 # evaluating favorite_number >= 10 returns true
+  favorite_number = favorite_number + 10
+  puts "And now your favorite_number is 10 more!"
+end
+puts "THE END" 
+
+#Repetition Example
+favorite_number = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+10.times do
+  favorite_number = favorite_number + 1
+end
+puts "And now your favorite_number is 10 more! It is #{favorite_number}"
+
