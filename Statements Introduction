@@ -15,3 +15,25 @@ favorite_number = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
 end
 puts "And now your favorite_number is 10 more! It is #{favorite_number}"
 
+#If..Elseif.. ELse Statements
+chance_of_rain = 0.2
+if chance_of_rain <= 0.25
+  puts "Pack a sun shelter!"
+elsif (chance_of_rain > 0.25 && chance_of_rain < 0.75)
+  puts "Pack an umbrella!"
+else
+  puts "Stay home and read Hegel."
+end
+
+#The Case statement 
+
+current_weather = "raining"
+ 
+case current_weather
+  when "sunny"
+    puts "grab some sunscreen!"
+  when "raining"
+    puts "grab an umbrella"
+  when "snowing"
+    puts "bundle up"
+end
