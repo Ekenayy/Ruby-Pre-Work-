@@ -1,0 +1,8 @@
+#Increments a key-value pair by 1 if exists
+#adds key-value pair to a hash if it does not 
+
+if shipping_manifest["top hat"]
+  shipping_manifest["top hat"] += 1
+else
+  shipping_manifest["top hat"] = 1
+end
