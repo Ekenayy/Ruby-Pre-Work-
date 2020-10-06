@@ -19,3 +19,11 @@ def output_array_elements(array)
     counter += 1
   end
 end
+
+#FIRST CLEVER CODE
+#Find the largest number in an array and return it's value 
+
+def find_max_value(array)
+ sorted_array = array.sort
+ sorted_array[-1]
+end
