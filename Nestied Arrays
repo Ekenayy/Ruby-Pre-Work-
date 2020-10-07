@@ -1,0 +1,54 @@
+#Modifying Scalar Data in AoA
+
+spice_rack = [
+    # 0        1          2
+  ["Mace", "Ginger", "Marjoram"],             # 0
+  ["Paprika", "Fajita Mix", "Coriander"],    # 1
+  ["Parsley", "Sage", "Rosemary"]            # 2
+]
+ 
+spice_rack[1][1] #=> "Fajita Mix" (it's not really a spice)
+spice_rack[1][1] = "Cumin" #=> "Cumin"
+spice_rack[1][1] #=> "Cumin"
+
+
+#Printing out values from AoA using two loops
+array_of_arrays = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+count = 0
+ 
+while count < array_of_arrays.length do
+  p array_of_arrays[count]
+ 
+  inner_count = 0
+  while inner_count < array_of_arrays[count].length do
+    p array_of_arrays[count][inner_count]
+    inner_count += 1
+  end
+ 
+  count += 1
+end
+
+#Reducing Values (summing) 
+
+count = 0
+sum = 0
+ 
+while count < array_of_arrays.length do
+ 
+  inner_count = 0
+  while inner_count < array_of_arrays[count].length do
+    sum = sum + array_of_arrays[count][inner_count] # adds the element's value to sum and sets sum
+    inner_count += 1
+  end
+ 
+  count += 1
+end
+ 
+sum
+ # => 45
+
