@@ -35,22 +35,23 @@ end
 
 #Reducing Values (summing) 
 
-count = 0
-sum = 0
+guessing_game_grid = [
+ [1, 2, 1, 7, 3],
+ [2, 100, 15, 4, 18],
+ [15, 16, 99, 1, 2, 11]
+]
  
-while count < array_of_arrays.length do
- 
-  inner_count = 0
-  while inner_count < array_of_arrays[count].length do
-    sum = sum + array_of_arrays[count][inner_count] # adds the element's value to sum and sets sum
-    inner_count += 1
+total = 0
+row_index = 0
+while row_index < guessing_game_grid.count do
+  element_index = 0
+  while element_index < guessing_game_grid[row_index].count do
+    total += guessing_game_grid[row_index][element_index]
+    element_index += 1
   end
- 
-  count += 1
+  row_index += 1
 end
- 
-sum
- # => 45
+total #=> 297
  
  # Good reference code for accessing values in AoAs 
  
