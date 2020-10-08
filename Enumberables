@@ -30,3 +30,30 @@ hash = {key1: "value1", key2: "value2"}
 hash.each do |key, value|
   puts "#{key}: #{value}"
 end
+
+
+#hilariously fucked up way to try it 
+
+def key_for_min_value(name_hash)
+  
+name_hash = name_hash.to_a
+lowest_value = 10000
+
+if name_hash.empty?
+  return nil
+else
+row_index = 0
+while row_index < name_hash.count do
+  element_index = 0
+  while element_index < name_hash[row_index].count do
+    if lowest_value > name_hash[row_index][1]
+      lowest_value = name_hash[row_index][0]
+    end
+    element_index += 1
+  end
+  row_index += 1
+end
+end
+lowest_value
+end
+
