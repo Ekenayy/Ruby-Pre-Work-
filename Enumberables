@@ -23,3 +23,10 @@ is_anyone_vegetarian?(["vegetarian", "none", "paleo", "dairy free", "none"]) #=>
 
 
 #Each enumerable (the least expressive Enumerable) 
+#Working with hashes
+
+hash = {key1: "value1", key2: "value2"}
+ 
+hash.each do |key, value|
+  puts "#{key}: #{value}"
+end
