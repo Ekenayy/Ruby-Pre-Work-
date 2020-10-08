@@ -20,3 +20,6 @@ def is_anyone_vegetarian?(list_of_dietary_restrictions)
 end
  
 is_anyone_vegetarian?(["vegetarian", "none", "paleo", "dairy free", "none"]) #=> true
+
+
+#Each enumerable (the least expressive Enumerable) 
