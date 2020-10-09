@@ -32,28 +32,22 @@ hash.each do |key, value|
 end
 
 
-#hilariously fucked up way to try it 
+#Answer to Min_value lab 
 
 def key_for_min_value(name_hash)
+  lowest_value = 0
+  lowest_key = nil
   
-name_hash = name_hash.to_a
-lowest_value = 10000
-
-if name_hash.empty?
-  return nil
-else
-row_index = 0
-while row_index < name_hash.count do
-  element_index = 0
-  while element_index < name_hash[row_index].count do
-    if lowest_value > name_hash[row_index][1]
-      lowest_value = name_hash[row_index][0]
+  name_hash.each do |key,value|
+    #if the lowest_value is in it's intial state  
+    #or if the value of the current key is less than the lowest_value
+    #then: set the lowest_value to value and lowest_key to key
+    if lowest_value == 0 || value < lowest_value
+      lowest_value = value 
+      lowest_key = key
     end
-    element_index += 1
   end
-  row_index += 1
+  lowest_key
 end
-end
-lowest_value
-end
+
 
