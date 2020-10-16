@@ -127,33 +127,115 @@ def game_hash
   }
 end
 
+#takes a player's name as an argument and returns the player's points
 def num_points_scored(player_name)
   hashketball = game_hash 
-    hashketball[:home].delete(:team_name)
-    hashketball[:home].delete(:colors)
-    hashketball[:away].delete(:team_name)
-    hashketball[:away].delete(:colors)
-
+ 
   
   hashketball.each do |key,value|
-    value.each do |team, details|
-     details.each do |stats|
-     if stats.has_value?(player_name)
-       return stats[:points]
-     #binding.pry
-    end
-    end
+    value[:players].each do |player, details|
+      if player.has_value?(player_name)
+        return player[:points]
+      end
+      #binding.pry
     end
   end
 end 
 
-def team_colors(input_name)
+#Takes the team as an argument and returns the team's colors
+def team_colors(team_name)
   hashketball = game_hash 
   
 hashketball.each do |key, value|
   if value.has_value?(input_name)
+    #binding.pry
     return value[:colors]
   #binding.pry
 end
 end
 end 
+
+#returns an array of the team names
+def team_names
+    hashketball = game_hash 
+    name_array = []
+
+hashketball.each do |key, value|
+  if value.has_value?("Brooklyn Nets") || value.has_value?("Charlotte Hornets")
+    name_array << value[:team_name]
+ #binding.pry
+    end
+  end 
+  #binding.pry
+name_array
+end 
+
+#Takes the team name as an argument and returns an array of the jersey numbers of that team's players
+def player_numbers(team)
+      hashketball = game_hash 
+      player_numbers = []
+i = 0
+
+hashketball.each do |key, value|
+    if value.has_value?(team)
+      while i < value[:players].length do
+     player_numbers << value[:players][i][:number]
+     i += 1
+    #binding.pry
+      end
+    end 
+  end
+  player_numbers
+  #binding.pry
+  end
+
+#Takes the player's name as an argument and returns their shoe size
+def shoe_size(player_name)
+  hashketball = game_hash 
+  
+  hashketball.each do |key, value|
+    value[:players].each do |stats, data|
+      if stats[:player_name] == player_name
+        return stats[:shoe]
+      end
+    #binding.pry
+    end 
+  end
+end 
+
+#Takes the player's name as an argument and returns the hash containing their stats 
+def player_stats(given_player)
+  hashketball = game_hash 
+  
+  hashketball.each do |key, value|
+   value[:players].each do |stats, data|
+    if stats.has_value?(given_player)
+      return stats
+      end
+     #binding.pry
+    end 
+  end
+ end
+
+#Searches for the basketball player with the largest shoe size and returns their number of rebounds 
+def big_shoe_rebounds
+    hashketball = game_hash 
+  
+  shoe_size = 0
+  winner_rebounds = 0
+
+hashketball.each do |key, value|
+   value[:players].each do |stats, data|
+     if stats[:shoe] > shoe_size
+       shoe_size = stats[:shoe]
+       winner_rebounds = stats[:rebounds]
+    #winner_hash = value[:players].max_by { |x| :shoe}
+     #winner_hash[:rebounds]
+      end 
+     #binding.pry
+    end 
+   end 
+ winner_rebounds
+ #binding.pry
+ end 
+
